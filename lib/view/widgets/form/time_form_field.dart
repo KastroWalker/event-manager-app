@@ -24,12 +24,13 @@ class TimeFormField extends StatelessWidget {
             return null;
           }
           final components = value.split(":");
-          if (components.length == 3) {
+          if (components.length == 2) {
             final hour = int.tryParse(components[0]);
             final minute = int.tryParse(components[1]);
             if (hour != null && minute != null) {
-              if (hour < 0 || hour > 24) return null;
-              if (minute < 0 || minute > 60) return null;
+              final isValidHour = hour >= 0 || hour <= 24;
+              final isValidMinute = minute >= 0 || minute <= 60;
+              if (isValidHour && isValidMinute) return null;
             }
           }
           return "Horário inválido";
