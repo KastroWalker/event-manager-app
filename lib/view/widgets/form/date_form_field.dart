@@ -5,8 +5,9 @@ class DateFormField extends StatelessWidget {
   final mask = MaskTextInputFormatter(mask: "##/##/####");
   final String label;
   final TextEditingController controller;
+  final bool required;
 
-  DateFormField({super.key, required this.label, required this.controller});
+  DateFormField({super.key, required this.label, required this.controller, required this.required});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class DateFormField extends StatelessWidget {
         ),
         validator: (value) {
           if (value == null || value.isEmpty) {
+            if (required) return "Campo obrigatório";
             return null;
           }
           final components = value.split("/");

@@ -36,6 +36,7 @@ class EventDetails {
       'endTime': endTime,
       'address': address,
       'site': site,
+      'userId': 9
     };
   }
 }
@@ -77,28 +78,33 @@ class _CreateEventPageState extends State<CreateEventPage> {
                 child: Column(
                   children: <Widget>[
                   FormTextField(
-                    label: 'Título',
+                    label: 'Título*',
                     controller: _eventTitleController,
+                    required: true,
                   ),
                   FormTextField(
                     label: 'Descrição',
                     controller: _eventDescriptionController,
                   ),
                   DateFormField(
-                    label: 'Data de início',
+                    label: 'Data de início*',
                     controller: _eventStartDateController,
+                    required: true,
                   ),
                   DateFormField(
-                    label: 'Data de fim',
+                    label: 'Data de fim*',
                     controller: _eventEndDateController,
+                    required: true,
                   ),
                   TimeFormField(
-                    label: 'Horário de início',
+                    label: 'Horário de início*',
                     controller: _eventStartTimeController,
+                    required: true,
                   ),
                   TimeFormField(
-                    label: 'Horário de fim',
+                    label: 'Horário de fim*',
                     controller: _eventEndTimeController,
+                    required: true,
                   ),
                   FormTextField(
                     label: 'Endereço',
