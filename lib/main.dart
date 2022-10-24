@@ -1,4 +1,5 @@
 import 'package:event_manager/view/widgets/pages/event/create_event_page.dart';
+import 'package:event_manager/view/widgets/pages/user/create_user_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CreateEventPage(title: 'Cadastrar Evento'),
+      home: const CreateUserPage(title: 'Cadastrar Usuário'),
     );
   }
 }
