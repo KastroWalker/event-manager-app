@@ -51,16 +51,19 @@ class _CreateUserPageState extends State<CreateUserPage> {
               child: Column(
                 children: <Widget>[
                   FormTextField(
-                    label: 'Nome',
+                    label: 'Nome*',
                     controller: _userNameController,
+                    required: true,
                   ),
                   FormTextField(
-                    label: 'Email',
+                    label: 'Email*',
                     controller: _userEmailController,
+                    required: true,
                   ),
                   FormTextField(
-                    label: 'Senha',
+                    label: 'Senha*',
                     controller: _userPasswordController,
+                    required: true,
                   ),
                   ElevatedButton(
                     onPressed: () async {

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const CreateUserPage(title: 'Cadastrar Usuário'),
+      home: const CreateEventPage(title: 'Cadastrar Evento'),
     );
   }
 }
