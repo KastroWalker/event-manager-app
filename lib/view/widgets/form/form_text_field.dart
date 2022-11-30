@@ -14,7 +14,7 @@ class FormTextField extends StatelessWidget {
       required this.controller,
       this.required = false,
       this.validators,
-      required this.invalidValueMessage});
+      this.invalidValueMessage = ''});
 
   @override
   Widget build(BuildContext context) {
