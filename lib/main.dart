@@ -9,6 +9,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  static const home = "/";
+  static const create_event = "/create_event";
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ListEventPage(title: 'Lista de eventos'),
+      initialRoute: home,
+      routes: {
+        home: (context) => const ListEventPage(title: 'Lista de Eventos'),
+        create_event: (context) => const CreateEventPage(title: 'Cadastrar Evento'),
+      },
     );
   }
 }

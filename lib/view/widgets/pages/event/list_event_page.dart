@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:event_manager/main.dart';
 import 'package:event_manager/view/widgets/form/date_form_field.dart';
 import 'package:event_manager/view/widgets/form/form_text_field.dart';
 import 'package:event_manager/view/widgets/form/time_form_field.dart';
@@ -109,6 +110,21 @@ class _ListEventPageState extends State<ListEventPage> {
             }
             return const Text('Unknown error');
           },
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, MyApp.create_event).then(
+              (created) => {
+                if (created == true)
+                  setState(() {
+                    events = fetchEvents();
+                  })
+              },
+            );
+          },
+          child: const Text('Cadastrar Evento'),
         ),
       ),
     );

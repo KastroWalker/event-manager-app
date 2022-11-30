@@ -1,8 +1,6 @@
 import 'dart:convert';
 
-import 'package:event_manager/view/widgets/form/date_form_field.dart';
 import 'package:event_manager/view/widgets/form/form_text_field.dart';
-import 'package:event_manager/view/widgets/form/time_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -18,11 +16,13 @@ class CreateEventPage extends StatefulWidget {
 
 class EventDetails {
   late String title;
+
   // late String startDate;
   // late String endDate;
   // late String startTime;
   // late String endTime;
   String? description;
+
   // String? address;
   // String? site;
 
@@ -46,6 +46,7 @@ class _CreateEventPageState extends State<CreateEventPage> {
 
   final _eventTitleController = TextEditingController();
   final _eventDescriptionController = TextEditingController();
+
   // final _eventStartDateController = TextEditingController();
   // final _eventEndDateController = TextEditingController();
   // final _eventStartTimeController = TextEditingController();
@@ -72,11 +73,11 @@ class _CreateEventPageState extends State<CreateEventPage> {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: <Widget>[
+          children: <Widget>[
+            Form(
+              key: _formKey,
+              child: Column(
+                children: <Widget>[
                   FormTextField(
                     label: 'Título*',
                     controller: _eventTitleController,
@@ -135,6 +136,11 @@ class _CreateEventPageState extends State<CreateEventPage> {
                           headers: {"content-type": "application/json"},
                           body: jsonEncode(eventDetails),
                         );
+
+                        if (!mounted) return;
+                        response.statusCode == 201
+                            ? Navigator.pop(context, true)
+                            : Navigator.pop(context, false);
 
                         print('Response status: ${response.statusCode}');
                         print('Response body: ${response.body}');
